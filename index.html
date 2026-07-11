@@ -1,9 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>THỞ DỐC CHECK-IN</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THỞ DỐC CHECK-IN</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
 </head>
+
 <body>
-    <h1>THỞ DỐC CHECK-IN</h1>
+
+<header>
+
+<h1>🎸 THỞ DỐC CHECK-IN</h1>
+
+</header>
+
+<div class="container">
+
+<div id="reader"></div>
+
+<div id="loading">
+
+Đang mở camera...
+
+</div>
+
+<div id="ticket" class="hide">
+
+<h2 id="ten"></h2>
+
+<div class="line">
+<span>🎫 Mã vé</span>
+<b id="mave"></b>
+</div>
+
+<div class="line">
+<span>👥 Số lượng</span>
+<b id="soluong"></b>
+</div>
+
+<div class="line">
+<span>💳 Thanh toán</span>
+<b id="thanhtoan"></b>
+</div>
+
+<div class="line">
+<span>🚪 Check-in</span>
+<b id="checkin"></b>
+</div>
+
+<button id="btnCheckin">
+
+CHECK-IN
+
+</button>
+
+</div>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="app.js"></script>
+
 </body>
 </html>
