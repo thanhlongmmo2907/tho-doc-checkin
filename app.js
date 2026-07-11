@@ -78,7 +78,7 @@ document.getElementById("thanhtoan").innerHTML = data.trangThai;
 
 // Hiển thị số vé đã dùng
 document.getElementById("checkin").innerHTML =
-    data.daVao + "/" + data.soLuong + " vé";
+"🚶 " + data.daVao + "/" + data.soLuong + " đã vào";
 
 }
 
