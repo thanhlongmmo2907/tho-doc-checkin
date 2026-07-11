@@ -72,10 +72,13 @@ async function timVe(maVe) {
     document.getElementById("ticket").classList.remove("hide");
 
     document.getElementById("ten").innerHTML = "👤 " + data.ten;
-    document.getElementById("mave").innerHTML = data.maVe;
-    document.getElementById("soluong").innerHTML = data.soLuong;
-    document.getElementById("thanhtoan").innerHTML = data.trangThai;
-    document.getElementById("checkin").innerHTML = data.checkin;
+document.getElementById("mave").innerHTML = data.maVe;
+document.getElementById("soluong").innerHTML = data.soLuong;
+document.getElementById("thanhtoan").innerHTML = data.trangThai;
+
+// Hiển thị số vé đã dùng
+document.getElementById("checkin").innerHTML =
+    data.daVao + "/" + data.soLuong + " vé";
 
 }
 
