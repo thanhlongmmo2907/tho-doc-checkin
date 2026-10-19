@@ -36,6 +36,7 @@ async function startScanner() {
         async (decodedText) => {
 
             currentTicket = decodedText;
+            alert("QR đọc được: " + decodedText);
 
             await qr.stop();
 
