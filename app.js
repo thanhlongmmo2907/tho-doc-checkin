@@ -1,5 +1,6 @@
 const API =
-"https://script.google.com/macros/s/AKfycbwyM8rCotS82akaIoAEam1ylIqno04E-ABi-iY8_8kxCIvbN8bhpratQEXZ_tN9Qn36qw/exec";
+"https://script.google.com/macros/s/AKfycbyFx2ZwwIFSkGs3etK7o-EH6cXZ44Oc8zTLYP5cOTb-mqpxKgK-e1XxF_v3w-yINEv1bg/exec";
+
 
 let qr;
 let currentTicket = "";
