@@ -34,9 +34,8 @@ async function startScanner() {
             qrbox: 250
         },
         async (decodedText) => {
-
-            currentTicket = decodedText;
-            alert("QR đọc được: " + decodedText);
+    currentTicket = decodedText.trim();
+    alert("QR đọc được: [" + currentTicket + "]");
 
             await qr.stop();
 
