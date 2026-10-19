@@ -58,6 +58,7 @@ alert("Đang gọi API:\n" + url);
 const res = await fetch(url);
 
         const data = await res.json();
+alert("API trả về:\n" + JSON.stringify(data));
 
         if (data === "NOTFOUND" || data.maVe == null) {
             showToast("❌ Không tìm thấy vé");
