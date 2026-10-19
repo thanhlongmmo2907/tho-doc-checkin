@@ -51,9 +51,11 @@ async function timVe(maVe) {
     try {
         showToast("Đang tìm vé...");
 
-        const res = await fetch(
-            API + "?action=timVe&maVe=" + encodeURIComponent(maVe)
-        );
+        const url = API + "?action=timVe&maVe=" + encodeURIComponent(maVe);
+
+alert("Đang gọi API:\n" + url);
+
+const res = await fetch(url);
 
         const data = await res.json();
 
