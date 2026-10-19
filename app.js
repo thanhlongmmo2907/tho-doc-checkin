@@ -68,19 +68,21 @@ async function timVe(maVe) {
 
     }
 
-    document.getElementById("reader").style.display = "none";
-    document.getElementById("ticket").classList.remove("hide");
+    
+document.getElementById("reader").style.display = "none";
+document.getElementById("ticket").classList.remove("hide");
 
-    document.getElementById("ten").innerHTML = "👤 " + data.ten;
-document.getElementById("mave").innerHTML = data.maVe;
-document.getElementById("soluong").innerHTML = data.soLuong;
-document.getElementById("thanhtoan").innerHTML = data.trangThai;
+document.getElementById("ten").textContent = "👤 " + (data.ten || "");
+document.getElementById("mave").textContent = data.maVe || "";
+document.getElementById("soluong").textContent = data.soLuong ?? 0;
+document.getElementById("thanhtoan").textContent = data.trangThai || "Chưa xác nhận";
 
-// Hiển thị số vé đã dùng
-document.getElementById("checkin").innerHTML =
-"🚶 " + data.daVao + "/" + data.soLuong + " đã vào";
+// Hiển thị số vé đã sử dụng
+document.getElementById("checkin").textContent =
+    "🚶 " + (data.daVao ?? 0) + "/" + (data.soLuong ?? 0) + " đã vào";
 
 }
+
 
 async function checkin() {
 
