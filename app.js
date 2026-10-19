@@ -46,42 +46,48 @@ async function startScanner() {
     );
 }
 
+
 async function timVe(maVe) {
+    try {
+        showToast("Đang tìm vé...");
 
-    showToast("Đang tìm vé...");
+        const res = await fetch(
+            API + "?action=timVe&maVe=" + encodeURIComponent(maVe)
+        );
 
-    const res = await fetch(
-        API +
-        "?action=timVe&maVe=" +
-        encodeURIComponent(maVe)
-    );
+        const data = await res.json();
 
-    const data = await res.json();
+        if (data === "NOTFOUND" || data.maVe == null) {
+            showToast("❌ Không tìm thấy vé");
+            setTimeout(startScanner, 1500);
+            return;
+        }
 
-    if (data == "NOTFOUND") {
+        document.getElementById("reader").style.display = "none";
+        document.getElementById("ticket").classList.remove("hide");
 
-        showToast("❌ Không tìm thấy vé");
+        document.getElementById("ten").textContent =
+            "👤 " + (data.ten || "Chưa có tên");
 
-        setTimeout(startScanner,1500);
+        document.getElementById("mave").textContent =
+            data.maVe || "";
 
-        return;
+        document.getElementById("soluong").textContent =
+            Number(data.soLuong ?? 0);
 
+        document.getElementById("thanhtoan").textContent =
+            data.trangThai || "Chưa xác nhận";
+
+        document.getElementById("checkin").textContent =
+            "🚶 " + Number(data.daVao ?? 0) + "/" +
+            Number(data.soLuong ?? 0) + " đã vào";
+
+    } catch (error) {
+        console.error("Lỗi tra cứu vé:", error);
+        showToast("❌ Lỗi kết nối API");
     }
-
-    
-document.getElementById("reader").style.display = "none";
-document.getElementById("ticket").classList.remove("hide");
-
-document.getElementById("ten").textContent = "👤 " + (data.ten || "");
-document.getElementById("mave").textContent = data.maVe || "";
-document.getElementById("soluong").textContent = data.soLuong ?? 0;
-document.getElementById("thanhtoan").textContent = data.trangThai || "Chưa xác nhận";
-
-// Hiển thị số vé đã sử dụng
-document.getElementById("checkin").textContent =
-    "🚶 " + (data.daVao ?? 0) + "/" + (data.soLuong ?? 0) + " đã vào";
-
 }
+
 
 
 async function checkin() {
